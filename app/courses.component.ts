@@ -1,4 +1,5 @@
-import {Component} from '@angular/core'
+import { Component } from '@angular/core'
+import { CourseService } from './course.service';
 
 @Component({
     selector: 'courses',//css selector
@@ -10,10 +11,14 @@ import {Component} from '@angular/core'
                 {{ course }}
                 </li>
             </ul>
-        `
+        `,
+    providers: [CourseService]//dependency injection
 })
 export class CoursesComponent {
     // title: string = "The title of the courses page";
     title = "The ttle of the courses pages";//data type infer, dynamic binding
-    courses = ["Course1", "Course2", "course3"];
+    courses: string[];
+    constructor(courseSevice: CourseService) {
+        this.courses = courseSevice.getCourses();
+    }
 }
