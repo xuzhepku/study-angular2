@@ -1,9 +1,18 @@
 import { Component } from '@angular/core';
-import { CoursesComponent } from './courses.component';//without ts extension, start searching from current folder.
-import { AuthorsComponent } from './authors.component';
 @Component({
     selector: 'my-app',
-    template: '<h1>Angular 2 App</h1><courses></courses><authors></authors>',
-    directives: [CoursesComponent, AuthorsComponent],
+    template: `<div>
+        <i class="fa fa-5x" 
+            [class.fa-star] = "isActive" 
+            [class.fa-star-o] = "!isActive" 
+            (click)="onClick($event)">
+        </i>
+       </div>`,
 })
-export class AppComponent { }
+export class AppComponent { 
+    isActive = false;
+    onClick(){
+        this.isActive = !this.isActive;
+    }
+}
+// [class.glyphicon-star-empty] = "!isActive"
