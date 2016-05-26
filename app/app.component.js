@@ -17,10 +17,13 @@ var AppComponent = (function () {
             isFavorite: true
         };
     }
+    AppComponent.prototype.onFavoriteChange = function ($event) {
+        console.log($event);
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n         <favorite [is-favorite]=\"post.isFavorite\"></favorite>\n    ",
+            template: "\n         <favorite [is-favorite]=\"post.isFavorite\" (favoriteChange)=\"onFavoriteChange($event)\"></favorite>\n    ",
             directives: [favorite_component_1.FavoriteComponent] //一定要写啊，坑啊！！！对于component的引用
         }), 
         __metadata('design:paramtypes', [])
