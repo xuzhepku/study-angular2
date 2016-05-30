@@ -12,10 +12,12 @@ var core_1 = require('@angular/core');
 var FavoriteComponent = (function () {
     function FavoriteComponent() {
         this.isFavorite = false; //括号中加string是别名
+        // alias: favoriteChange for this output
         this.change = new core_1.EventEmitter(); //event publisher, output公开此变量
     }
     FavoriteComponent.prototype.onClick = function () {
         this.isFavorite = !this.isFavorite;
+        // producer
         this.change.emit({ newValue: this.isFavorite }); //raise event, pass parameter
     };
     __decorate([
@@ -30,7 +32,7 @@ var FavoriteComponent = (function () {
     FavoriteComponent = __decorate([
         core_1.Component({
             selector: 'favorite',
-            template: "\n            <i class=\"fa fa-5x\" \n            [class.fa-star] = \"isFavorite\" \n            [class.fa-star-o] = \"!isFavorite\" \n            (click)=\"onClick($event)\">\n        </i>\n    ",
+            templateUrl: 'app/favorite.template.html',
         }), 
         __metadata('design:paramtypes', [])
     ], FavoriteComponent);

@@ -2,23 +2,18 @@ import { Component, Input, EventEmitter, Output } from '@angular/core'
 
 @Component({
     selector: 'favorite',
-    template: `
-            <i class="fa fa-5x" 
-            [class.fa-star] = "isFavorite" 
-            [class.fa-star-o] = "!isFavorite" 
-            (click)="onClick($event)">
-        </i>
-    `,
-
+    templateUrl: 'app/favorite.template.html',//will cause extra http request to download the template
+    // outputs: ['change:favoriteChange']
 })
 
 export class FavoriteComponent {
     @Input('is-favorite') isFavorite = false; //括号中加string是别名
-
+    // alias: favoriteChange for this output
     @Output('favoriteChange') change = new EventEmitter();    //event publisher, output公开此变量
 
     onClick() {
         this.isFavorite = !this.isFavorite;
+        // producer
         this.change.emit({ newValue: this.isFavorite });    //raise event, pass parameter
     }
 }

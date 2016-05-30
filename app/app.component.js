@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var favorite_component_1 = require('./favorite.component');
+//(favoriteChange) define consumer here.
 var AppComponent = (function () {
     function AppComponent() {
         this.post = {

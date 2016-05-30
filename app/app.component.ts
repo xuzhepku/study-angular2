@@ -1,7 +1,7 @@
 import {Component} from '@angular/core'
 import {FavoriteComponent} from './favorite.component'
 
-
+//(favoriteChange) define consumer here.
 @Component({
     selector: 'my-app',
     template: `
